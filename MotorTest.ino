@@ -2,8 +2,8 @@
 #include "Adafruit-MotorShield-V2/Adafruit-MotorShield-V2.h"
 #include "Adafruit-MotorShield-V2/Adafruit_PWMServoDriver.h"
 
-#DEFINE SPEED 255
-#DEFINE TIME 2500
+#define SPEED 255
+#define TIME 2500
 
 
     Adafruit_MotorShield AFMS = Adafruit_MotorShield(); 

@@ -1,4 +1,4 @@
-#include "application.h"
+#include "application.h"                                            //libraries
 #include "Adafruit-MotorShield-V2/Adafruit-MotorShield-V2.h"
 #include "Adafruit-MotorShield-V2/Adafruit_PWMServoDriver.h"
 
@@ -7,13 +7,13 @@
 
 
 
-    Adafruit_MotorShield AFMS = Adafruit_MotorShield(); 
-    Adafruit_DCMotor *Motor1 = AFMS.getMotor(1);
-    Adafruit_DCMotor *Motor2 = AFMS.getMotor(2);
-    Adafruit_DCMotor *Motor3 = AFMS.getMotor(3);
-    Adafruit_DCMotor *Motor4 = AFMS.getMotor(4);
+Adafruit_MotorShield AFMS = Adafruit_MotorShield();             //Initialize Motors
+Adafruit_DCMotor *Motor1 = AFMS.getMotor(1);
+Adafruit_DCMotor *Motor2 = AFMS.getMotor(2);
+Adafruit_DCMotor *Motor3 = AFMS.getMotor(3);
+Adafruit_DCMotor *Motor4 = AFMS.getMotor(4);
     
-void forward(){
+void forward(){                                                 //Defining functions
     Motor1->run(FORWARD);
     Motor2->run(FORWARD);
     Motor3->run(FORWARD);
@@ -61,11 +61,11 @@ void right(){
 void setup() {
 
     AFMS.begin();
-    Motor1->setSpeed(SPEED);
+    Motor1->setSpeed(SPEED);                                        //Initialize motor speeds
     Motor2->setSpeed(SPEED);
     Motor3->setSpeed(SPEED);
     Motor4->setSpeed(SPEED);
-    Spark.function("direction",direction);
+    Spark.function("direction",direction);                          //Spark function to use internet data
 
 
 }
@@ -77,7 +77,7 @@ void loop() {
    
 }
 
-int direction(String command){
+int direction(String command){                                      //Spark function 
     
     if (command=="forward") {
         forward();

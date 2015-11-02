@@ -4,14 +4,11 @@ runtime: python27
 api_version: 1
 threadsafe: true
 
-# [START handlers]
 handlers:
 - url: /.*
-  script: guestbook.app
-# [END handlers]
-
-# [START libraries]
+  script: main.app
 libraries:
 - name: webapp2
   version: latest
-# [END libraries]
+- name: jinja2
+  version: latest

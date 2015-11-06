@@ -7,7 +7,6 @@ threadsafe: true
 handlers:
 - url: /iframe
   static_dir: iframe
-	
 - url: /.*
   script: main.app
 libraries:

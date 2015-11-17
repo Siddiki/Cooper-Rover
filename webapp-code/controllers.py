@@ -96,7 +96,7 @@ class LoginHandler(BaseHandler):
       pc.post(pending_pledge, user)
     else:
       self.redirect('/dashboard')
-
+      
 def main():
   application = webapp.WSGIApplication([
 

@@ -9,47 +9,46 @@
 <p class="lead">
   Stream will be here once we like actually do the stuffs ya kno
 </p>
-<p 
 
 <script type="text/javascript" src="//cdn.jsdelivr.net/sparkjs/0.5.9/spark.min.js">
-/*jslint node: true */
-"use strict";
-var spark =require('spark');
-spark.on('login', function() {
-  var devicesPr = spark.listDevices();
-  devicesPr.then(
-    function(devices){
-      console.log('API call List Devices: ', devices);
-      var callback = function(err, data) {
-        if (err) {
-          console.log('An error occurred while getting core attrs:', err);
-        } else {
-          console.log('Core attr retrieved successfully:', data);
+    /*jslint node: true */
+    "use strict";
+    var spark =require('spark');
+    spark.on('login', function() {
+      var devicesPr = spark.listDevices();
+      devicesPr.then(
+        function(devices){
+          console.log('API call List Devices: ', devices);
+          var callback = function(err, data) {
+            if (err) {
+              console.log('An error occurred while getting core attrs:', err);
+            } else {
+              console.log('Core attr retrieved successfully:', data);
+            }
+          };
+          var core = devices[0];
+          document.onkeydown = checkKey;
+          function checkKey(e) {
+            e = e || window.event;
+            if (e.keyCode == '38') {
+              core.callFunction('direction', 'forward', callback);
+            }
+            else if (e.keyCode == '40') {
+              core.callFunction('direction', 'reverse', callback);
+            }
+            else if (e.keyCode == '37') {
+              core.callFunction('direction', 'left', callback);
+            }
+            else if (e.keyCode == '39') {
+              core.callFunction('direction', 'right', callback);
+            }
+          }
+        },  
+        function(err) {
+          console.log('API call failed: ', err);
         }
-      };
-      var core = devices[0];
-      document.onkeydown = checkKey;
-	  function checkKey(e) {
-    		e = e || window.event;
-    		if (e.keyCode == '38') {
-        	core.callFunction('direction', 'forward, callback);
-   			}
-    		else if (e.keyCode == '40') {
-        	core.callFunction('direction', 'reverse', callback);
-    		}
-    		else if (e.keyCode == '37') {
-       		core.callFunction('direction', 'left', callback);
-    		}
-    		else if (e.keyCode == '39') {
-       		core.callFunction('direction', 'right', callback);
-    		}
-    	}
-    },	
-    function(err) {
-      console.log('API call failed: ', err);
-    }
-  );
-});
-spark.login({ username: 'email@example.com', password: 'password' });
+      );
+    });
+    spark.login({ username: 'email@example.com', password: 'password' });
 </script>
 {% endblock %}

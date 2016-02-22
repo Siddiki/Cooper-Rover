@@ -1,0 +1,44 @@
+{% extends "secure.html" %}
+
+{% block content %}
+
+<div class="page-header">
+  <h1>Use your keyboard to control the car!</h1>
+</div>
+
+
+
+<div style="text-align: center">
+  <iframe width="1280" height="780"
+src="http://www.youtube.com/embed/XGSy3_Czz8k?autoplay=1">
+</iframe>
+</div>
+
+<script>
+var xhr = new XMLHttpRequest();
+document.onkeydown = checkKey;
+
+function checkKey(e) {
+
+    e = e || window.event;
+
+    if (e.keyCode == '38') {
+      xhr.open('POST', "http://cooper-rover.appspot.com/up", true);
+      xhr.send();
+    }
+    else if (e.keyCode == '40') {
+      xhr.open('POST', "http://cooper-rover.appspot.com/down", true);
+      xhr.send();fg
+    }
+    else if (e.keyCode == '37') {
+      xhr.open('POST', "http://cooper-rover.appspot.com/left", true);
+      xhr.send();
+    }
+    else if (e.keyCode == '39') {
+      xhr.open('POST', "http://cooper-rover.appspot.com/right", true);
+      xhr.send();
+    }
+
+}
+</script>
+{% endblock %}

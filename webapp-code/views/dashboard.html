@@ -24,72 +24,52 @@ $(document).keydown(function(e){
   }).keyup(function(e){
     if (map[38] && map[40]) {
       $.ajax({
-        type: "POST",
-        url: "/direction",
-        data: 'Brake'
+        url: "/brake"
       });
     }
     else if (map[37] && map[39]) {
       $.ajax({
-        type: "POST",
-        url: "/direction",
-        data: 'Brake'
+        url: "/brake"
       });
     }
     else if (map[38] && map[37]){
       $.ajax({
-        type: "POST",
-        url: "/direction",
-        data: 'UpLeft'
+        url: "/UpLeft"
       });
     }
     else if (map[38] && map[39]){
       $.ajax({
-        type: "POST",
-        url: "/direction",
-        data: 'UpRight'
+        url: "/UpRight"
       });
     }
     else if (map[40] && map[37]){
       $.ajax({
-        type: "POST",
-        url: "/direction",
-        data: 'DownLeft'
+        url: "/DownLeft"
       });
     }
     else if (map[40] && map[39]){
       $.ajax({
-        type: "POST",
-        url: "/direction",
-        data: 'DownRight'
+        url: "/DownRight"
       });
     }
     else if (map[38]){
       $.ajax({
-        type: "POST",
-        url: "/direction",
-        data: 'Up'
+        url: "/Up"
       });
     }
     else if (map[40]) {
       $.ajax({
-        type: "POST",
-        url: "/direction",
-        data: 'Down'
+        url: "/Down"
       });
     }
     else if (map[37]) {
       $.ajax({
-        type: "POST",
-        url: "/direction",
-        data: 'Left'
+        url: "/Left"
       });
     }
     else if (map[39]) {
       $.ajax({
-        type: "POST",
-        url: "/direction",
-        data: 'Right'
+        url: "/Right"
       });
     }
     map[e.keyCode] = false;

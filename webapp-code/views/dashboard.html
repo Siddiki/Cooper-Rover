@@ -17,10 +17,10 @@ src="http://www.youtube.com/embed/XGSy3_Czz8k?autoplay=1">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 
 <script>
-var down = {};
+var map = {};
 $(document).keydown(function(e){
     e = e || event;
-    down[e.keyCode] = true;
+    map[e.keyCode] = true;
   }).keyup(function(e){
     if (map[38] && map[40]) {
       $.ajax({
@@ -92,7 +92,7 @@ $(document).keydown(function(e){
         data: 'Right'
       });
     }
-    down[e.keyCode] = false;
+    map[e.keyCode] = false;
   });
 </script>
 {% endblock %}

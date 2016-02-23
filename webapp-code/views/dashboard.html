@@ -14,31 +14,85 @@ src="http://www.youtube.com/embed/XGSy3_Czz8k?autoplay=1">
 </iframe>
 </div>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
 <script>
-var xhr = new XMLHttpRequest();
-document.onkeydown = checkKey;
-
-function checkKey(e) {
-
-    e = e || window.event;
-
-    if (e.keyCode == '38') {
-      xhr.open('POST', "http://cooper-rover.appspot.com/up", true);
-      xhr.send();
+var down = {};
+$(document).keydown(function(e){
+    e = e || event;
+    down[e.keyCode] = true;
+  }).keyup(function(e){
+    if (map[38] && map[40]) {
+      $.ajax({
+        type: "POST",
+        url: "/direction",
+        data: 'Brake'
+      });
     }
-    else if (e.keyCode == '40') {
-      xhr.open('POST', "http://cooper-rover.appspot.com/down", true);
-      xhr.send();fg
+    else if (map[37] && map[39]) {
+      $.ajax({
+        type: "POST",
+        url: "/direction",
+        data: 'Brake'
+      });
     }
-    else if (e.keyCode == '37') {
-      xhr.open('POST', "http://cooper-rover.appspot.com/left", true);
-      xhr.send();
+    else if (map[38] && map[37]){
+      $.ajax({
+        type: "POST",
+        url: "/direction",
+        data: 'UpLeft'
+      });
     }
-    else if (e.keyCode == '39') {
-      xhr.open('POST', "http://cooper-rover.appspot.com/right", true);
-      xhr.send();
+    else if (map[38] && map[39]){
+      $.ajax({
+        type: "POST",
+        url: "/direction",
+        data: 'UpRight'
+      });
     }
-
-}
+    else if (map[40] && map[37]){
+      $.ajax({
+        type: "POST",
+        url: "/direction",
+        data: 'DownLeft'
+      });
+    }
+    else if (map[40] && map[39]){
+      $.ajax({
+        type: "POST",
+        url: "/direction",
+        data: 'DownRight'
+      });
+    }
+    else if (map[38]){
+      $.ajax({
+        type: "POST",
+        url: "/direction",
+        data: 'Up'
+      });
+    }
+    else if (map[40]) {
+      $.ajax({
+        type: "POST",
+        url: "/direction",
+        data: 'Down'
+      });
+    }
+    else if (map[37]) {
+      $.ajax({
+        type: "POST",
+        url: "/direction",
+        data: 'Left'
+      });
+    }
+    else if (map[39]) {
+      $.ajax({
+        type: "POST",
+        url: "/direction",
+        data: 'Right'
+      });
+    }
+    down[e.keyCode] = false;
+  });
 </script>
 {% endblock %}

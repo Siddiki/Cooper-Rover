@@ -8,7 +8,7 @@ import cgi
 import serial
 
 def arduino(cmd):  
-    ser = serial.Serial('/dev/ttyAMA0') #RPI USB
+    ser = serial.Serial('/dev/ttyACM0') #RPI USB
     ser.write(cmd + "\n")
     ser.close
 

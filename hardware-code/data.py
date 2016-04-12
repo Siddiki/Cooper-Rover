@@ -8,7 +8,7 @@ import cgi
 import serial
 
 def arduino(cmd):  
-    ser = serial.Serial('/dev/ttyAMA0', 9600) #RPI UART
+    ser = serial.Serial('/dev/ttyAMA0', 9600) #RPI USB
     ser.write(cmd + "\n")
     ser.close
 

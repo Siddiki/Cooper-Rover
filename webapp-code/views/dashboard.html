@@ -24,13 +24,13 @@ $(document).keydown(function(e){
   }).keyup(function(e){
     if (map[38] && map[40]) {
       $.ajax({
-        url: "http://192.168.84.124/cgi-bin/data.py",
+        url: "http://10.30.14.48/cgi-bin/data.py",
         data: {'q': 'Brake' }
       });
     }
     else if (map[37] && map[39]) {
       $.ajax({
-         url: "http://192.168.84.124/cgi-bin/data.py",
+         url: "http://10.30.14.48/cgi-bin/data.py",
         data: {'q': 'Brake' }
       });
     }

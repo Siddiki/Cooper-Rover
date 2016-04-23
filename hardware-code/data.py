@@ -12,12 +12,7 @@ def arduino(cmd):
     ser.write(cmd + "\n")
     ser.close
 
-while(1):
-	data = cgi.FieldStorage()
-	if "q" in data:
-		q = data["q"].value
-		arduino(q)
-		print(q)
-	else:
-		print("checking for data...")
-	
+data = cgi.FieldStorage()
+if "q" in data:
+    q = data["q"].value
+    arduino(q)

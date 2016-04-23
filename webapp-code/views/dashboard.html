@@ -9,9 +9,16 @@
 
 
 <div style="text-align: center">
-  <iframe width="1280" height="780"
-src="http://www.youtube.com/embed/XGSy3_Czz8k?autoplay=1">
-</iframe>
+<OBJECT classid="clsid:9BE31822-FDAD-461B-AD51-BE1D1C159921"
+     codebase="http://downloads.videolan.org/pub/videolan/vlc/latest/win32/axvlc.cab"
+     width="640" height="480" id="vlc" events="True">
+   <param name="Src" value="rtsp://cameraipaddress" />
+   <param name="ShowDisplay" value="True" />
+   <param name="AutoLoop" value="False" />
+   <param name="AutoPlay" value="True" />
+   <embed id="vlcEmb"  type="application/x-google-vlc-plugin" version="VideoLAN.VLCPlugin.2" autoplay="yes" loop="no" width="640" height="480"
+     target="rtsp://10.30.8.214:8554" ></embed>  <!--Raspberry Pi IP Address-->
+</OBJECT>
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
